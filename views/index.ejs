@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #ff0000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ff0000;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style> -->
+</head>
+<body>
+  <!-- <header>
+    <img src="/youtube-logo.png" alt="YouTube Logo" width="50">
+    <h1 style="display: inline;">YouTube Downloader</h1>
+  </header> -->
+
+  <div class="container">
+    <div class="logo">
+        <i class="fab fa-youtube"></i>
+    </div>
+    <h1>YouTube Downloader</h1>
+  <main>
+    <label for="videoUrl">Video URL:</label>
+    <input type="text" id="videoUrl" placeholder="Enter YouTube video URL">
+    <button class="download-btn" onclick="downloadVideo()"><i class="fas fa-download"></i>Download Video</button>
+    <button class="download-btn btn-audio" onclick="downloadAudio()"><i class="fas fa-download"></i>Download Audio</button>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Nsutradhar</p>
+  </footer>
+</div>
+  <script>
+    async function downloadVideo() {
+      const url = document.getElementById('videoUrl').value;
+      if (!url) return;
+
+      const videoBtn = document.getElementById('videoBtn');
+      if (videoBtn) {
+        videoBtn.innerText = 'Downloading...';
+        videoBtn.disabled = true;
+      }
+
+      window.location.href = `/downloadVideo?url=${url}`;
+    }
+
+    async function downloadAudio() {
+      const url = document.getElementById('videoUrl').value;
+      if (!url) return;
+
+      const audioBtn = document.getElementById('audioBtn');
+      if (audioBtn) {
+        audioBtn.innerText = 'Downloading...';
+        audioBtn.disabled = true;
+      }
+
+      window.location.href = `/downloadAudio?url=${url}`;
+    }
+  </script>
+</body>
+</html>
